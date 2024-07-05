@@ -90,6 +90,10 @@ export class Tetris {
     }
   }
 
+  clear(ctx) {
+    this.field.clear(this.ctx);
+  }
+
   start(interval) {
     this.gameInterval = setInterval(this.updateGame.bind(this), interval);
   }

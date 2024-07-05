@@ -34,3 +34,10 @@ html, body {
 #game-canvas {
   border: 2px solid #000;
 }
+
+#github-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: solid black;
+  margin-top: 10px;
+}
