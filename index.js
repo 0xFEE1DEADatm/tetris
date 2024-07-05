@@ -11,3 +11,8 @@ canvas.addEventListener('touchstart', (event) => tetris.touchHandler.handleTouch
 
 tetris.start(1000);
 
+
+// сообщение Game Over
+// добавить подсчëт очков
+// кнопку перезапуска игры
+// добавить ссылку на код 
