@@ -1,4 +1,4 @@
-import { Tetris } from './tetris.js';
+import { Tetris } from './src/tetris.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');

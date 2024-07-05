@@ -1,6 +1,6 @@
 import { Figure } from './figures.js';
 import { GameField } from './gamefield.js';
-import { GameOver } from './gameOver.js';
+import { GameOver } from './gameover.js';
 import { TouchHandler } from './touchhandler.js';
 import { KeyHandler } from './keyhandler.js';
 
@@ -9,12 +9,16 @@ export class Tetris {
     this.ctx = ctx;
     this.blockSize = blockSize;
     this.field = new GameField(rows, cols);
+
     this.currentFigure = Figure.getRandomFigure();
     this.nextFigure = Figure.getRandomFigure();
+
     this.startCol = Math.floor(cols / 2) - 1;
     this.currentRow = -3;
     this.currentCol = this.startCol;
+
     this.gameOver = false;
+
     this.gameOverHandler = new GameOver(this);
     this.touchHandler = new TouchHandler(this);
     this.keyHandler = new KeyHandler(this);
@@ -77,10 +81,6 @@ export class Tetris {
       this.currentFigure = rotatedFigure;
       this.currentCol += offset;
     }
-  }
-
-  start(interval) {
-    this.gameInterval = setInterval(this.updateGame.bind(this), interval);
   }
 
   stop() {

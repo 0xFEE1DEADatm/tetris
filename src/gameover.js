@@ -6,10 +6,10 @@ export class GameOver {
   }
 
   showGameOver() {
-    setTimeout(() => {
+    //setTimeout(() => {
       this.spiralField();
       this.printGameOver();
-    }, 3000);
+    //}, 500);
   }
 
   // printGameOver() {
