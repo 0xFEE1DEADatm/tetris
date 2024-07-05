@@ -6,11 +6,12 @@ import { Score } from './score.js';
 import { TouchHandler } from './handlers/touchhandler.js';
 import { KeyHandler } from './handlers/keyhandler.js';
 
-
 export class Tetris {
   constructor(ctx, rows, cols, blockSize) {
     this.ctx = ctx;
     this.blockSize = blockSize;
+    this.rows = rows;
+    this.cols = cols;
     this.field = new GameField(rows, cols);
 
     this.currentFigure = Figure.getRandomFigure();
@@ -59,7 +60,6 @@ export class Tetris {
         return;
       }
 
-      
       const linesCleared = this.field.getFilledRows();
       this.score.addPoints(linesCleared.length);
       this.field.deleteFilledRows();
@@ -101,5 +101,17 @@ export class Tetris {
   stop() {
     clearInterval(this.gameInterval);
     this.gameOverHandler.stopSpiral();
+  }
+
+  resetGame() {
+    this.stop();
+    this.field = new GameField(this.rows, this.cols);
+    this.currentFigure = Figure.getRandomFigure();
+    this.nextFigure = Figure.getRandomFigure();
+    this.currentRow = -3;
+    this.currentCol = this.startCol;
+    this.gameOver = false;
+    this.score.reset();
+    this.start(1000); 
   }
 }

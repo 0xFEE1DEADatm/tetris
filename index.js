@@ -16,9 +16,8 @@ const touchHandler = new TouchHandler(tetris);
 document.addEventListener('keydown', (event) => keyHandler.handleKeyPress(event));
 canvas.addEventListener('touchstart', (event) => touchHandler.handleTouch(event));
 
-restart.addEventListener('click', (event) => {
-    tetris.stop(500);
-    tetris.clear(ctx);
-    tetris.start(500);
+restart.addEventListener('click', () => {
+    tetris.resetGame();
 });
+
 tetris.start(1000);

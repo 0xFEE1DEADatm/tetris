@@ -62,4 +62,8 @@ export class GameOver {
     }
     return path;
   }
+
+  stopSpiral() {
+    clearInterval(this.spiralInterval);
+  }
 }
